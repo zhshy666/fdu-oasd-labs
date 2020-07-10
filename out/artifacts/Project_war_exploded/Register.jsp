@@ -11,31 +11,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Register</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <script src="layui/layui.js"></script>
+    <link rel="stylesheet" href="Resources/layui/css/layui.css">
+    <script src="Resources/layui/layui.js"></script>
 
+    <link rel="stylesheet" href="Resources/toastr/toastr.css">
+
+    <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="Resources/toastr/toastr.min.js"></script>
+    <script src="Alerts.js"></script>
     <script>
-        // TODO : 优化alert
         function isValid(form)
         {
             if (form.firstName.value==="")
             {
-                alert("First name can't be empty.");
+                toastr.error("First name can't be empty.");
                 return false;
             }
             if (form.lastName.value==="")
             {
-                alert("Last name can't be empty.");
+                toastr.error("Last name can't be empty.");
                 return false;
             }
             if (form.password.value==="")
             {
-                alert("Password can't be empty.");
+                toastr.error("Password can't be empty.");
                 return false;
             }
             if (form.email.value==="")
             {
-                alert("Email can't be empty.");
+                toastr.error("Email can't be empty.");
                 return false;
             }
             else return true;
