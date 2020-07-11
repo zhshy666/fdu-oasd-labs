@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
             if(userDao.register(user)){   // success
                 HttpSession session = request.getSession();
                 session.setAttribute("firstName", user.getFirstName());
-                session.setAttribute("result", 0);
+                session.setAttribute("result", 1);
                 response.sendRedirect("/");
             }
             else {

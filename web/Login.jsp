@@ -8,7 +8,6 @@
     <script src="Resources/layui/layui.js"></script>
 
     <link rel="stylesheet" href="Resources/toastr/toastr.css">
-
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
     <script src="Alerts.js"></script>
@@ -31,7 +30,19 @@
         }
     </script>
 </head>
-<body>
+<%
+    if(session.getAttribute("result") != null){
+        int result = (int) session.getAttribute("result");
+        if(result == 0) {
+            out.print("<body onload=\"toastr.error('Login failed. The username or password is wrong.')\">");
+        }
+        session.setAttribute("result", null);
+    }
+    else {
+        out.print("<body>");
+    }
+%>
+
     <div style="height: 30%"></div>
     <div class="layui-row layui-col-space10" style="vertical-align: middle; height: 30%">
         <div class="layui-col-md4"></div>

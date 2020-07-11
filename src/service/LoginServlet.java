@@ -27,10 +27,13 @@ public class LoginServlet extends HttpServlet {
             if(username != null){
                 HttpSession session = request.getSession();
                 session.setAttribute("firstName", firstName);
-                request.getRequestDispatcher("Responses/LoginSuccess.jsp").forward(request, response);
+                session.setAttribute("result", 1);
+                response.sendRedirect("/");
             }
             else {
-                request.getRequestDispatcher("Responses/LoginFail.jsp").forward(request, response);
+                HttpSession session = request.getSession();
+                session.setAttribute("result", 0);
+                response.sendRedirect("Login.jsp");
             }
         }catch (Exception e){
             e.printStackTrace();

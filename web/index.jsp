@@ -10,7 +10,7 @@
     <%
         if(session.getAttribute("result") != null){
             int result = (int) session.getAttribute("result");
-            if(result == 0) {
+            if(result == 1) {
                 out.print("<body onload=\"toastr.success('Register success. Login successfully.')\">");
             }
             session.setAttribute("result", null);
