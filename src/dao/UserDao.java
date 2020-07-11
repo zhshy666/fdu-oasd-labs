@@ -23,7 +23,7 @@ public class UserDao {
 
         boolean flag = false;
         try {
-            String sql = "select * from user where firstName = ?";
+            String sql = "select * from users where firstName = ?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, u.getFirstName());
             resultSet = statement.executeQuery();
@@ -34,7 +34,7 @@ public class UserDao {
                 return false;
             }
 
-            String sql2 = "insert into user values (null, ?, ?, ?, ?)";
+            String sql2 = "insert into users values (null, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql2);
             statement.setString(1,u.getFirstName());
             statement.setString(2,u.getLastName());
@@ -74,7 +74,7 @@ public class UserDao {
 
         String username = null;
         try {
-            String sql = "select * from user where firstName = ? and password = ?";
+            String sql = "select * from users where firstName = ? and password = ?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, password);

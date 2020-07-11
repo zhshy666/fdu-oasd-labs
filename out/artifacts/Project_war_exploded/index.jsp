@@ -1,7 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Main page</title>
+        <link rel="stylesheet" href="Resources/layui/css/layui.css">
+        <script src="Resources/layui/layui.js"></script>
+
         <link rel="stylesheet" href="Resources/toastr/toastr.css">
         <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
         <script src="Resources/toastr/toastr.min.js"></script>
@@ -22,14 +27,16 @@
 
     <h1>Hello!!!Main Page here</h1>
 
-    <%
+    <h2><%
       String firstName = (String) request.getSession().getAttribute("firstName");
       if (firstName == null || firstName.equals("")){
         out.print("<a href=\"Login.jsp\">login</a>");
       }
       else {
-        out.print("Hello, " + firstName);
+        out.print("Hello, <a href=\"PersonalPage.jsp\">" + firstName +"</a>");
       }
     %>
+    </h2>
+    <h2>相关功能开发中...先完成lab的需求要紧（逃）</h2>
   </body>
 </html>
