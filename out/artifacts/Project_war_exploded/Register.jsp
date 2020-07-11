@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  entity.User: 6666
-  Date: 2020/7/9
-  Time: 13:11
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,11 +8,12 @@
     <script src="Resources/layui/layui.js"></script>
 
     <link rel="stylesheet" href="Resources/toastr/toastr.css">
-
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
     <script src="Alerts.js"></script>
     <script>
+        // TODO : 邮箱格式合法性检查
+        // TODO : 验证码
         function isValid(form)
         {
             if (form.firstName.value==="")
@@ -46,7 +40,19 @@
         }
     </script>
 </head>
-<body>
+<%
+    if(session.getAttribute("result") != null){
+        int result = (int) session.getAttribute("result");
+        if(result == 0) {
+            out.print("<body onload=\"toastr.error('Register failed. The user name has been used.')\">");
+        }
+        session.setAttribute("result", null);
+    }
+    else {
+        out.print("<body>");
+    }
+%>
+
     <div style="height: 25%"></div>
     <div class="layui-row layui-col-space10" style="vertical-align: middle; height: 38%">
         <div class="layui-col-md4"></div>
@@ -93,5 +99,6 @@
             <a href="Login.jsp">Already has an account? Click here to log in.</a>
         </div>
     </div>
+
 </body>
 </html>
