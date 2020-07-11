@@ -1,11 +1,13 @@
 package service;
 
+import com.sun.deploy.net.HttpRequest;
 import dao.UserDao;
 import entity.User;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LoginServlet extends HttpServlet {
@@ -18,10 +20,13 @@ public class LoginServlet extends HttpServlet {
 
         String firstName = request.getParameter("firstName");
         String password = request.getParameter("password");
+
         try {
             UserDao userDao = new UserDao();
             String username = userDao.login(firstName, password);
             if(username != null){
+                HttpSession session = request.getSession();
+                session.setAttribute("firstName", firstName);
                 request.getRequestDispatcher("Responses/LoginSuccess.jsp").forward(request, response);
             }
             else {
