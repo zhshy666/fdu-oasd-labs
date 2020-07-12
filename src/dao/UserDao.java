@@ -101,4 +101,36 @@ public class UserDao {
         }
         return username;
     }
+
+    public int findUserIdByName(String username){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(DBU, DBUSER, DBUPASS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        int userId = -1;
+        try {
+            String sql = "select id from users where firstName = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                userId = resultSet.getInt(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if(statement != null)
+                    statement.close();
+                if(connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return userId;
+    }
 }

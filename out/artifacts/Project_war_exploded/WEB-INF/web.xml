@@ -21,5 +21,14 @@
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>homeServlet</servlet-name>
+        <servlet-class>service.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>homeServlet</servlet-name>
+        <url-pattern>/Home.jsp</url-pattern>
+    </servlet-mapping>
     
 </web-app>

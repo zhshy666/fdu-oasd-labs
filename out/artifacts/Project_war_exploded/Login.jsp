@@ -14,6 +14,7 @@
     <script>
     </script>
     <script>
+        // TODO: 表单项内容修改（根据pj要求）
         function isValid(form)
         {
             if (form.firstName.value==="")

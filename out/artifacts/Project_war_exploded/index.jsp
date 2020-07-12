@@ -13,6 +13,9 @@
         <script src="Alerts.js"></script>
     </head>
     <%
+        // TODO: 导航栏实现
+        // TODO: 主页图片轮播+展示
+        // TODO: 做登录状态的检验
         if(session.getAttribute("result") != null){
             int result = (int) session.getAttribute("result");
             if(result == 1) {
@@ -33,7 +36,7 @@
         out.print("<a href=\"Login.jsp\">login</a>");
       }
       else {
-        out.print("Hello, <a href=\"PersonalPage.jsp\">" + firstName +"</a>");
+        out.print("Hello, <a href=\"Home.jsp\">" + firstName +"</a>");
       }
     %>
     </h2>

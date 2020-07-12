@@ -21,22 +21,18 @@ public class LoginServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String password = request.getParameter("password");
 
-        try {
-            UserDao userDao = new UserDao();
-            String username = userDao.login(firstName, password);
-            if(username != null){
-                HttpSession session = request.getSession();
-                session.setAttribute("firstName", firstName);
-                session.setAttribute("result", 1);
-                response.sendRedirect("/");
-            }
-            else {
-                HttpSession session = request.getSession();
-                session.setAttribute("result", 0);
-                response.sendRedirect("Login.jsp");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+        UserDao userDao = new UserDao();
+        String username = userDao.login(firstName, password);
+        if(username != null){
+            HttpSession session = request.getSession();
+            session.setAttribute("firstName", firstName);
+            session.setAttribute("result", 1);
+            response.sendRedirect("/");
+        }
+        else {
+            HttpSession session = request.getSession();
+            session.setAttribute("result", 0);
+            response.sendRedirect("Login.jsp");
         }
     }
 }
