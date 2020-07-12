@@ -1,15 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 6666
-  Date: 2020/7/12
-  Time: 12:40
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="entity.Image" %>
+<%@ page import="java.util.Set" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Home controller</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../Resources/layui/css/layui.css">
     <script src="../Resources/layui/layui.js"></script>
 
@@ -20,10 +15,16 @@
 </head>
 <body>
 <h1><%= (String)session.getAttribute("firstName") %> 's personal center</h1>
-<h2>
-    <%=
-        request.getAttribute("favors")
+
+    <%
+        //request.getAttribute("favors");
+        Set<Image> set = (Set<Image>) request.getAttribute("favors");
+        for(Image image : set){
+            String path = image.getPath();
+            String url = "../travel-images/medium/" + path;
+            out.print("<img src=" + url + ">");
+        }
     %>
-</h2>
+<img src="../travel-images/medium/222222.jpg" alt="">
 </body>
 </html>
