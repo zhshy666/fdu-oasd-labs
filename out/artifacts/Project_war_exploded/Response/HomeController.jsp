@@ -17,7 +17,6 @@
 <body>
 <div class="layui-container">
     <div style="height: 5%"></div>
-
     <div class="layui-row layui-col-space10">
         <div class="layui-col-md1"></div>
         <div class="layui-col-md11">
@@ -44,8 +43,13 @@
                                 String url = "../travel-images/small/" + path;
                                 out.print("<div class=\"layui-col-md3 card\">");
                                 out.print("<img class=\"layui-col-md12\" style=\"height: 25%; width: 100%\" src=" + url + ">");
-                                // TODO: 这里放评论和收藏两个按钮，点击大图片进入详情页
-                                out.print("<div class=\"container\">xxxxxx</div>");
+                                // TODO: 点击大图片进入详情页
+                                out.print("<div class=\"container\" style=\"text-align: right\">" +
+                                        "<a href=\"../Home.jsp?imageId=" +
+                                        image.getImageId() +"\">" +
+                                        "<i class=\"layui-icon layui-icon-star-fill\" style=\"font-size: 25px; color: #FFB800;\"></i>" +
+                                        "</a>" +
+                                        "</div>");
                                 out.print("</div>");
                             }
                         %>

@@ -68,4 +68,38 @@ public class FavorDao {
         }
         return set;
     }
+
+    public void deleteFavorImageByUserIdAndImageId(int userId, int imageId) {
+        connection = DBUtil.connectDB();
+        try {
+            // TODO: 这里favors表是一个demo，本次lab测试用，写pj的时候记得改成助教给的那个travelimagefavor
+            String sql = "delete from favors where userId = ? and ImageID = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
+            statement.setInt(2, imageId);
+            int result = statement.executeUpdate();
+
+            if(result > 0){
+                System.out.println("Delete success");
+            }else{
+                System.out.println("Fail to delete");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if(statement != null)
+                    statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    if(connection != null)
+                        connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

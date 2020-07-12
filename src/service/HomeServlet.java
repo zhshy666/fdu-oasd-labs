@@ -27,6 +27,11 @@ public class HomeServlet extends HttpServlet {
         }
 
         FavorDao favorDao = new FavorDao();
+        if(req.getParameter("imageId") != null) {
+            int imageId = Integer.parseInt(req.getParameter("imageId"));
+            favorDao.deleteFavorImageByUserIdAndImageId(userId, imageId);
+        }
+
         Set<Image> set = favorDao.findFavorImagesByUserId(userId);
         req.setAttribute("favors", set);
         req.getRequestDispatcher("Response/HomeController.jsp").forward(req, resp);
