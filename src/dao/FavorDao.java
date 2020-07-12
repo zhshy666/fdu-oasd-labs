@@ -1,15 +1,13 @@
 package dao;
 
 import entity.Image;
+import util.DBUtil;
 
 import java.sql.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class FavorDao {
-    private static final String DBU = "jdbc:mysql://localhost:3306/project?useSSL=true&serverTimezone=GMT";
-    private static final String DBUSER = "root";
-    private static final String DBUPASS = "zsy666";
     private static Connection connection = null;
     private static PreparedStatement statement = null;
     private static ResultSet resultSet = null;
@@ -19,12 +17,7 @@ public class FavorDao {
     }
 
     public Set<Image> findFavorImagesByUserId(int userId){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DBU, DBUSER, DBUPASS);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        connection = DBUtil.connectDB();
 
         Set<Image> set = new LinkedHashSet<>();
         try {
@@ -62,10 +55,15 @@ public class FavorDao {
             try {
                 if(statement != null)
                     statement.close();
-                if(connection != null)
-                    connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                try {
+                    if(connection != null)
+                        connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return set;

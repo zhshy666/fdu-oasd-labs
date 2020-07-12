@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="../Resources/layui/css/layui.css">
     <script src="../Resources/layui/layui.js"></script>
-    <link rel="stylesheet" href="../Resources/myCSS/picture.css">
+    <link rel="stylesheet" href="../Resources/myCSS/card.css">
 
     <link rel="stylesheet" href="../Resources/toastr/toastr.css">
     <script src="../Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>

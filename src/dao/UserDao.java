@@ -2,11 +2,9 @@ package dao;
 
 import java.sql.*;
 import entity.User;
+import util.DBUtil;
 
 public class UserDao {
-    private static final String DBU = "jdbc:mysql://localhost:3306/project?useSSL=true&serverTimezone=GMT";
-    private static final String DBUSER = "root";
-    private static final String DBUPASS = "zsy666";
     private static Connection connection = null;
     private static PreparedStatement statement = null;
     private static ResultSet resultSet = null;
@@ -14,12 +12,7 @@ public class UserDao {
 
     }
     public boolean register(User u){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DBU, DBUSER, DBUPASS);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        connection = DBUtil.connectDB();
 
         boolean flag = false;
         try {
@@ -54,23 +47,22 @@ public class UserDao {
             try {
                 if(statement != null)
                     statement.close();
-                if(connection != null)
-                    connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                try {
+                    if(connection != null)
+                        connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-
         }
         return flag;
     }
 
     public String login(String name, String password){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DBU, DBUSER, DBUPASS);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        connection = DBUtil.connectDB();
 
         String username = null;
         try {
@@ -103,12 +95,7 @@ public class UserDao {
     }
 
     public int findUserIdByName(String username){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DBU, DBUSER, DBUPASS);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        connection = DBUtil.connectDB();
 
         int userId = -1;
         try {
@@ -125,10 +112,15 @@ public class UserDao {
             try {
                 if(statement != null)
                     statement.close();
-                if(connection != null)
-                    connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                try {
+                    if(connection != null)
+                        connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return userId;
