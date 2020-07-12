@@ -16,10 +16,6 @@
     <%-- TODO: 未登录用户不可以通过URL访问到该页面 --%>
     <h1><%= (String)session.getAttribute("firstName") %> 's personal center</h1>
     <%-- TODO: 实现收藏功能，用户访问该页面时发送请求到servlet，调用dao层相关代码，并返回结果，这里展示所收藏的图片 --%>
-    <h2>
-    <%
-        System.out.println(session.getAttribute("favors"));
-    %>
-    </h2>
+
 </body>
 </html>
