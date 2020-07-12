@@ -44,10 +44,11 @@
     }
 %>
 
+<div class="layui-container">
     <div style="height: 30%"></div>
     <div class="layui-row layui-col-space10" style="vertical-align: middle; height: 30%">
-        <div class="layui-col-md4"></div>
-        <div class="layui-col-md4">
+        <div class="layui-col-md3"></div>
+        <div class="layui-col-md6">
             <h1 style="text-align: center">Login</h1>
             <div style="height: 10%"></div>
             <form class="layui-form" action="loginServlet" method="post" onSubmit="return isValid(this);">
@@ -71,7 +72,7 @@
                 </div>
             </form>
         </div>
-        <div class="layui-col-md4"></div>
+        <div class="layui-col-md3"></div>
     </div>
     <div style="height: 3%"></div>
     <div class="layui-row" style="vertical-align: middle">
@@ -79,5 +80,6 @@
             <a href="Register.jsp">No account yet? Click here to register.</a>
         </div>
     </div>
+</div>
 </body>
 </html>
