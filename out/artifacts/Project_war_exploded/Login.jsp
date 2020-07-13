@@ -11,25 +11,7 @@
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
     <script src="JS/Alerts.js"></script>
-    <script>
-    </script>
-    <script>
-        // TODO: 表单项内容修改（根据pj要求）
-        function isValid(form)
-        {
-            if (form.firstName.value==="")
-            {
-                toastr.error("First name can't be empty.");
-                return false;
-            }
-            if (form.password.value==="")
-            {
-                toastr.error("Password can't be empty.");
-                return false;
-            }
-            else return true;
-        }
-    </script>
+    <script src="JS/Login.js"></script>
 </head>
 <%
     if(session.getAttribute("result") != null){
@@ -55,7 +37,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">First name</label>
                     <div class="layui-input-block">
-                        <input type="text" name="firstName" placeholder="Your first name" autocomplete="off" class="layui-input">
+                        <input type="text" name="username" placeholder="Your name" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">

@@ -63,12 +63,12 @@ public class UserDao {
         return flag;
     }
 
-    public String login(String name, String password){
+    public boolean login(String name, String password){
         connection = DBUtil.connectDB();
 
-        String username = null;
+        boolean flag = false;
         try {
-            String sql = "select * from users where firstName = ? and password = ?";
+            String sql = "select * from traveluser where UserName = ? and Pass = ?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, password);
@@ -76,7 +76,7 @@ public class UserDao {
 
             if(resultSet.next()){
                 System.out.println("Login success.");
-                username = name;
+                flag = true;
             }else{
                 System.out.println("Fail to login.");
             }
@@ -93,7 +93,7 @@ public class UserDao {
                 e.printStackTrace();
             }
         }
-        return username;
+        return flag;
     }
 
     public int findUserIdByName(String username){

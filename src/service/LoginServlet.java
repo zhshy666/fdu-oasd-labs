@@ -18,19 +18,18 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String firstName = request.getParameter("firstName");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         UserDao userDao = new UserDao();
-        String username = userDao.login(firstName, password);
-        if(username != null){
-            HttpSession session = request.getSession();
-            session.setAttribute("firstName", firstName);
+        boolean flag = userDao.login(username, password);
+        HttpSession session = request.getSession();
+        if(flag){
+            session.setAttribute("username", username);
             session.setAttribute("result", 1);
             response.sendRedirect("/");
         }
         else {
-            HttpSession session = request.getSession();
             session.setAttribute("result", 0);
             response.sendRedirect("Login.jsp");
         }

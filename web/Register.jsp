@@ -11,7 +11,7 @@
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
     <script src="JS/Alerts.js"></script>
-    <script src="JS/LoginAndRegister.js"></script>
+    <script src="JS/Register.js"></script>
 </head>
 <%
     if(session.getAttribute("result") != null){

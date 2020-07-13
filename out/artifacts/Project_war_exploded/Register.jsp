@@ -11,7 +11,7 @@
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
     <script src="JS/Alerts.js"></script>
-    <script src="JS/LoginAndRegister.js"></script>
+    <script src="JS/Register.js"></script>
 </head>
 <%
     if(session.getAttribute("result") != null){
@@ -29,8 +29,8 @@
 <div class="layui-container">
     <div style="height: 25%"></div>
     <div class="layui-row layui-col-space10" style="vertical-align: middle; height: 38%">
-        <div class="layui-col-md4"></div>
-        <div class="layui-col-md4">
+        <div class="layui-col-md3"></div>
+        <div class="layui-col-md6">
             <h1 style="text-align: center">Register</h1>
             <div style="height: 5%"></div>
             <form class="layui-form" action="registerServlet" method="post" onSubmit="return isValid(this);">
@@ -60,7 +60,7 @@
                 </div>
             </form>
         </div>
-        <div class="layui-col-md4"></div>
+        <div class="layui-col-md3"></div>
     </div>
     <div class="layui-row" style="vertical-align: middle">
         <div class="layui-col-md12" style="text-align: center">

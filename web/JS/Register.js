@@ -1,10 +1,8 @@
-// TODO : 邮箱格式合法性检查
-// TODO : 验证码
 function isValid(form)
 {
     if (form.username.value==="")
     {
-        toastr.error("First name can't be empty.");
+        toastr.error("Username can't be empty.");
         return false;
     }
     if (form.password.value==="")
@@ -20,9 +18,8 @@ function isValid(form)
     var email = form.email.value;
     var reg = /^([a-zA-Z]|[0-9])+@[a-zA-Z0-9]+\.([a-zA-Z])$/;
     if (!reg.test(email)) {
-        toastr.error("Email: invalid format.");
+        toastr.error("Invalid email.");
         return false;
     }
     else return true;
-
 }
