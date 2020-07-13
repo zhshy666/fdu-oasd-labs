@@ -21,7 +21,7 @@
         <div class="layui-col-md1"></div>
         <div class="layui-col-md11">
             <%-- TODO: 好友访问，这个就不能从session里获取了，还需要某些权限控制，想想好友访问的话怎么显示星星 --%>
-            <h1><%= (String)session.getAttribute("firstName") %> 's Home</h1>
+            <h1><%= (String)session.getAttribute("username") %> 's Home</h1>
         </div>
     </div>
 

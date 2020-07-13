@@ -101,7 +101,7 @@ public class UserDao {
 
         int userId = -1;
         try {
-            String sql = "select id from users where firstName = ?";
+            String sql = "select UID from traveluser where UserName = ?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             resultSet = statement.executeQuery();
