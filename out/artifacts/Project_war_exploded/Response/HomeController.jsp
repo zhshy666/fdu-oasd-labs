@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../Resources/toastr/toastr.css">
     <script src="../Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="../Resources/toastr/toastr.min.js"></script>
-    <script src="../Alerts.js"></script>
+    <script src="../JS/Alerts.js"></script>
 </head>
 <body>
 <div class="layui-container">
@@ -20,6 +20,7 @@
     <div class="layui-row layui-col-space10">
         <div class="layui-col-md1"></div>
         <div class="layui-col-md11">
+            <%-- TODO: 好友访问，这个就不能从session里获取了，还需要某些权限控制，想想好友访问的话怎么显示星星 --%>
             <h1><%= (String)session.getAttribute("firstName") %> 's Home</h1>
         </div>
     </div>

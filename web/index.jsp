@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Resources/toastr/toastr.css">
         <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
         <script src="Resources/toastr/toastr.min.js"></script>
-        <script src="Alerts.js"></script>
+        <script src="JS/Alerts.js"></script>
     </head>
     <%
         // TODO: 导航栏实现
@@ -31,12 +31,12 @@
     <h1>Hello!!!Main Page here</h1>
 
     <h2><%
-      String firstName = (String) request.getSession().getAttribute("firstName");
-      if (firstName == null || firstName.equals("")){
+      String username = (String) request.getSession().getAttribute("username");
+      if (username == null || username.equals("")){
         out.print("<a href=\"Login.jsp\">login</a>");
       }
       else {
-        out.print("Hello, <a href=\"Home.jsp\">" + firstName +"</a>");
+        out.print("Hello, <a href=\"Home.jsp\">" + username +"</a>");
       }
     %>
     </h2>

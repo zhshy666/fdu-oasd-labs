@@ -16,9 +16,9 @@ public class UserDao {
 
         boolean flag = false;
         try {
-            String sql = "select * from users where firstName = ?";
+            String sql = "select * from traveluser where UserName = ?";
             statement = connection.prepareStatement(sql);
-            statement.setString(1, u.getFirstName());
+            statement.setString(1, u.getUserName());
             resultSet = statement.executeQuery();
             // Check whether the user exists
             if(resultSet.next()){
@@ -27,12 +27,14 @@ public class UserDao {
                 return false;
             }
 
-            String sql2 = "insert into users values (null, ?, ?, ?, ?)";
+            String sql2 = "insert into traveluser values (null, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql2);
-            statement.setString(1,u.getFirstName());
-            statement.setString(2,u.getLastName());
-            statement.setString(3,u.getEmail());
-            statement.setString(4,u.getPassword());
+            statement.setString(1,u.getEmail());
+            statement.setString(2,u.getUserName());
+            statement.setString(3,u.getPassword());
+            statement.setString(4, u.getState());
+            statement.setString(5, u.getDateJoined());
+            statement.setString(6, u.getDateLastModified());
             int result = statement.executeUpdate();
 
             if(result > 0){

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="Resources/toastr/toastr.css">
     <script src="Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="Resources/toastr/toastr.min.js"></script>
-    <script src="Alerts.js"></script>
+    <script src="JS/Alerts.js"></script>
 </head>
 <body>
     <%-- TODO: 目前只实现展示个人收藏的功能，之后主页的其他功能也在这里实现 --%>

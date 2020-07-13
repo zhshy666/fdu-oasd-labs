@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegisterServlet extends HttpServlet {
 
@@ -18,18 +21,21 @@ public class RegisterServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
+        String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String state = "1";
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+        String dateJoined = formatter.format(date);
 
-        User user = new User(firstName, lastName, email, password);
+        User user = new User(username, email, password, state, dateJoined, dateJoined);
 
         try {
             UserDao userDao = new UserDao();
             if(userDao.register(user)){   // success
                 HttpSession session = request.getSession();
-                session.setAttribute("firstName", user.getFirstName());
+                session.setAttribute("userName", user.getUserName());
                 session.setAttribute("result", 1);
                 response.sendRedirect("/");
             }

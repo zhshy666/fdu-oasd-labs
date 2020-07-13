@@ -1,32 +1,55 @@
 package entity;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class User {
-    private String firstName;
-    private String lastName;
+    private String userName;
     private String email;
     private String password;
+    private String state;
+    private String dateJoined;
+    private String dateLastModified;
 
-    public User(String firstName, String lastName, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String userName, String email, String password, String state, String dateJoined, String dateLastModified) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
+        this.state = state;
+        this.dateJoined = dateJoined;
+        this.dateLastModified = dateLastModified;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getState() {
+        return state;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDateJoined() {
+        return dateJoined;
+    }
+
+    public String getDateLastModified() {
+        return dateLastModified;
+    }
+
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
+    }
+
+    public void setDateLastModified(String dateLastModified) {
+        this.dateLastModified = dateLastModified;
     }
 
     public String getEmail() {

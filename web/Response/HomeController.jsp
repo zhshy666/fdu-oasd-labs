@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../Resources/toastr/toastr.css">
     <script src="../Resources/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <script src="../Resources/toastr/toastr.min.js"></script>
-    <script src="../Alerts.js"></script>
+    <script src="../JS/Alerts.js"></script>
 </head>
 <body>
 <div class="layui-container">
